@@ -35,22 +35,23 @@ function App() {
 
 
   return (
-   <div>
+   <div className='ml-8 mt-8'>
     {data ? 
     <div>
       {data.map(coin => (
-        <ul key={coin.id}>
-          <li>{coin.name}</li>
-          <li>{coin.price}</li>
-        </ul>
+        <div key={coin.id}>
+          <p>{coin.name}</p>
+          <p>{coin.price}$</p>
+          <hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+        </div>
       ))}
     </div>
     :
     <div> No data </div>}
 
-    <div>
-      <button onClick={() => setPage((p) => p-10)}>Prev</button>
-      <button onClick={() => setPage((p) => p+10)}>Next</button>
+    <div className='mt-6'>
+      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-2 rounded-full" onClick={() => setPage((p) => p-10)}>Prev</button>
+      <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 mr-2 border border-blue-500 hover:border-transparent rounded-full" onClick={() => setPage((p) => p+10)}>Next</button>
     </div>
    </div>
   );
