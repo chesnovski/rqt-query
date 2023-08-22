@@ -2,37 +2,31 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
+import { useQuery } from 'react-query';
 
+
+
+async function fetchCoins(skip =0) {
+    const { data } = await axios.get(`https://api.coinstats.app/public/v1/coins?skip=${skip}&limit=10`);
+
+
+    return data.coins
+}
 
 function App() {
 
-  const[coins, setCoins] = useState()
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(false) 
 
-  async function fetchCoins() {
-    try {
-      const { data } = await axios.get('https://api.coinstats.app/public/v1/coins?limit=10');
-      setCoins(data.coins)
-    } catch{
-      setError(true)
+  const [page, setPage] = useState(0)
+  const {data, isLoading, isError} = useQuery({queryKey:['coins', page], queryFn: ()=> fetchCoins(page),
+        options: {
+          keepPreviosData : true
+        }})
 
-    } finally {
-      setLoading(false)
-
-    }
-  }
-  
-
-  useEffect(() => {
-    fetchCoins()
-  }, [])
-
-  if (loading) {
+  if (isLoading) {
     return <h3> Loading...</h3>
   }
 
-  if (error) {
+  if (isError) {
     return <h3> Error receiving data</h3>
   }
 
@@ -42,10 +36,10 @@ function App() {
 
   return (
    <div>
-    {coins ? 
+    {data ? 
     <div>
-      {coins.map(coin => (
-        <ul>
+      {data.map(coin => (
+        <ul key={coin.id}>
           <li>{coin.name}</li>
           <li>{coin.price}</li>
         </ul>
@@ -53,6 +47,11 @@ function App() {
     </div>
     :
     <div> No data </div>}
+
+    <div>
+      <button onClick={() => setPage((p) => p-10)}>Prev</button>
+      <button onClick={() => setPage((p) => p+10)}>Next</button>
+    </div>
    </div>
   );
 }
