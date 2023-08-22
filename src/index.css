@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  hr {
+    @apply w-64 h-px my-2 bg-gray-200 border-0 dark:bg-gray-700;
+  }
+
+  .bg-transparent {
+    background-color: "transparent";
+  }
+
+  .btn {
+    @apply w-32 py-2 px-4 mr-2 bg-blue-500 hover:bg-blue-700 text-white font-bold  rounded-full;
+  }
+
+  .btn-secondary {
+    @apply w-32 py-2 px-4 mr-2 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white  border border-blue-500 hover:border-transparent rounded-full;
+  }
+}
