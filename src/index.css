@@ -4,7 +4,7 @@
 
 @layer components {
   hr {
-    @apply w-64 h-px my-2 bg-gray-200 border-0 dark:bg-gray-700;
+    @apply h-px my-2 bg-gray-200 border-0 dark:bg-gray-700;
   }
 
   .bg-transparent {

@@ -13,6 +13,7 @@ async function fetchCoins(skip ) {
     return data.coins
 }
 
+
 function App() {
 
 
@@ -33,24 +34,35 @@ function App() {
  
 
   return (
-   <div className='ml-12 mt-8'>
-    {data ? 
-    <div>
-      {data.map(coin => (
-        <div key={coin.id}>
-          <img className="rounded-full h-8 inline-block mr-2"
-          src={coin.icon}
-          alt="" />
-          {coin.name}
-          <p>{coin.price.toFixed(3)}$</p>
-          <hr/>
+  <div className='ml-12 my-8'>
+      <div class=" grid grid-flow-col gap-36">
+        <div>
+              {data ? 
+          <div>
+            {data.map(coin => (
+              <div key={coin.id}>
+                <img className="rounded-full h-8 inline-block mr-2"
+                src={coin.icon}
+                alt="" />
+                {coin.name}
+                <p>{coin.price.toFixed(3)}$</p>
+                <hr/>
+              </div>
+            ))}
+          </div>
+          :
+          <div> No data </div>}
         </div>
-      ))}
-    </div>
-    :
-    <div> No data </div>}
 
-    <div className='mt-6'>
+
+        <div className='invisible  md:visible flex items-center '>
+          <img src="https://alternative.me/crypto/fear-and-greed-index.png" alt="Latest Crypto Fear & Greed Index" />
+        </div>
+
+      </div>  
+    
+
+    <div className='mt-6 '>
       {page === 0 ? 
         <div>
         <button disabled className="btn-disabled" onClick={() => setPage((p) => p-10)}>Prev</button>
