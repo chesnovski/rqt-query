@@ -11,6 +11,7 @@ async function fetchCoins(skip ) {
 
   return data.coins
 }
+  
 
 const Home = () => {
   const [page, setPage] = useState(0)
@@ -71,12 +72,6 @@ const Home = () => {
         </div>
       }
     </div>
-
-    <div>
-      <button>Click me for route</button>
-    </div>
-  
-  
   </>
     
 
