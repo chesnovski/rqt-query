@@ -1,22 +1,17 @@
-
-import './App.css';
+import '../../global.css';
 import React, { useState } from 'react';
 import axios from 'axios'
 import { useQuery } from 'react-query';
 
 
-
 async function fetchCoins(skip ) {
-    const { data } = await axios.get(`https://api.coinstats.app/public/v1/coins?skip=${skip}&limit=10`);
+  const { data } = await axios.get(`https://api.coinstats.app/public/v1/coins?skip=${skip}&limit=10`);
 
 
-    return data.coins
+  return data.coins
 }
 
-
-function App() {
-
-
+const Home = () => {
   const [page, setPage] = useState(0)
   const {data, isLoading, isError} = useQuery({queryKey:['coins', page], queryFn: ()=> fetchCoins(page),
   keepPreviousData : true
@@ -34,8 +29,8 @@ function App() {
  
 
   return (
-  <div className='ml-12 my-8'>
-      <div class=" grid grid-flow-col gap-36">
+  <>
+    <div class="ml-12 grid grid-flow-col gap-36">
         <div>
               {data ? 
           <div>
@@ -75,8 +70,12 @@ function App() {
         </div>
       }
     </div>
-   </div>
+  
+  
+  </>
+    
+
   );
 }
 
-export default App;
+export default Home
