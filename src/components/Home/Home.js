@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useQuery } from 'react-query';
 
 
+
 async function fetchCoins(skip ) {
   const { data } = await axios.get(`https://api.coinstats.app/public/v1/coins?skip=${skip}&limit=10`);
 
@@ -57,7 +58,7 @@ const Home = () => {
       </div>  
     
 
-    <div className='mt-6 '>
+    <div className='ml-32 mt-6 '>
       {page === 0 ? 
         <div>
         <button disabled className="btn-disabled" onClick={() => setPage((p) => p-10)}>Prev</button>
@@ -69,6 +70,10 @@ const Home = () => {
           <button className="btn-secondary" onClick={() => setPage((p) => p+10)}>Next</button>
         </div>
       }
+    </div>
+
+    <div>
+      <button>Click me for route</button>
     </div>
   
   

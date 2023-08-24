@@ -12,14 +12,14 @@
   }
 
   .btn {
-    @apply w-32 py-2 px-4 mr-2 bg-transparent text-black  hover:bg-gray-700 hover:text-white border  font-bold  rounded-full;
+    @apply w-32 py-2 px-4 mr-4 bg-transparent font-mono text-lg text-black  hover:bg-gray-700 hover:text-white border  font-bold  rounded-full;
   }
 
   .btn-disabled {
-    @apply w-32 py-2 px-4 mr-2 bg-gray-400  text-white font-bold  rounded-full;
+    @apply w-32 py-2 px-4 mr-4 bg-indigo-500 font-mono text-lg text-white font-bold  rounded-full;
   }
 
   .btn-secondary {
-    @apply w-32 py-2 px-4 mr-2 bg-transparent hover:bg-gray-700 text-black font-semibold hover:text-white  border border-gray-200 hover:border-transparent rounded-full;
+    @apply w-32 py-2 px-4 mr-4 bg-transparent font-mono text-lg hover:bg-gray-700 text-black font-semibold hover:text-white  border border-gray-200 hover:border-transparent rounded-full;
   }
 }
