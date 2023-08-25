@@ -7,7 +7,7 @@ const Header = () => {
       <h1 className='ml-'>Please be calm and take your profit</h1>
     </div>
     <div class="w-1/6 invisible  md:visible">
-      <a>About</a> 
+      <a href="/about">About</a> 
     </div>
   </div>
     // <div className='header grid grid-cols-2'>
