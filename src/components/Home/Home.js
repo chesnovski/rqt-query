@@ -63,9 +63,13 @@ const Home = () => {
 
     <div className='ml-32 mt-6 '>
       {page === 0 ? 
-        <div>
-        <button disabled className="btn-disabled" onClick={() => setPage((p) => p-10)}>prev</button>
-        <button className="btn-secondary" onClick={() => setPage((p) => p+10)}>next</button>
+        <div className='flex justify-start'>
+          <div className="btn-disabled  flex justify-center items-center" >
+              <NavigateBeforeIcon  fontSize="large"  />
+          </div>
+          <div className="btn-secondary flex justify-center items-center " onClick={() => setPage((p) => p+10)} >
+              <NavigateNextIcon  fontSize="large"  />
+          </div>
         </div>
         :
         <div className='flex justify-start'>

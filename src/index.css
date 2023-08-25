@@ -7,8 +7,8 @@
     @apply h-px my-2 bg-gray-200 border-0 dark:bg-gray-700;
   }
 
-  h1 {
-    @apply mb-6 bg-gradient-to-r from-indigo-500 font-mono text-lg text-gray-800 text-center font-bold;
+  .header {
+    @apply mb-6 bg-gradient-to-r from-indigo-500 to-blue-100 font-mono text-lg text-gray-800 text-center font-bold;
   }
 
   .bg-transparent {
