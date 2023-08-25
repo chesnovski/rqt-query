@@ -3,7 +3,7 @@ import Header from './Header/Header'
 
 const Layout = ({children}) => {
   return (
-    <div className='my-8'>
+    <div className='mb-8'>
         <Header/>
         {children}
 

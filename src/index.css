@@ -7,19 +7,23 @@
     @apply h-px my-2 bg-gray-200 border-0 dark:bg-gray-700;
   }
 
+  h1 {
+    @apply mb-6 bg-gradient-to-r from-indigo-500 font-mono text-lg text-gray-800 text-center font-bold;
+  }
+
   .bg-transparent {
     background-color: "transparent";
   }
 
   .btn {
-    @apply w-32 py-2 px-4 mr-4 bg-transparent font-mono text-lg text-black  hover:bg-gray-700 hover:text-white border  font-bold  rounded-full;
+    @apply w-32 h-12 py-2 px-4 mr-12 bg-transparent font-mono text-lg text-black  hover:bg-indigo-500 hover:text-white border  font-bold  rounded-full;
   }
 
   .btn-disabled {
-    @apply w-32 py-2 px-4 mr-4 bg-indigo-500 font-mono text-lg text-white font-bold  rounded-full;
+    @apply w-32 h-12 py-2 px-4 mr-12 bg-indigo-500 bg-gradient-to-r from-indigo-500 to-indigo-200  font-mono text-lg text-white font-bold  rounded-full;
   }
 
   .btn-secondary {
-    @apply w-32 py-2 px-4 mr-4 bg-transparent font-mono text-lg hover:bg-gray-700 text-black font-semibold hover:text-white  border border-gray-200 hover:border-transparent rounded-full;
+    @apply w-32 h-12 py-2 px-4 mr-4 bg-transparent font-mono text-lg hover:bg-gray-300 text-black font-semibold hover:text-white  border border-gray-200 hover:border-transparent rounded-full;
   }
 }

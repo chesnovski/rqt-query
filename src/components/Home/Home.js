@@ -2,6 +2,8 @@ import '../../global.css';
 import React, { useState } from 'react';
 import axios from 'axios'
 import { useQuery } from 'react-query';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 
 
 
@@ -62,13 +64,17 @@ const Home = () => {
     <div className='ml-32 mt-6 '>
       {page === 0 ? 
         <div>
-        <button disabled className="btn-disabled" onClick={() => setPage((p) => p-10)}>Prev</button>
-        <button className="btn-secondary" onClick={() => setPage((p) => p+10)}>Next</button>
+        <button disabled className="btn-disabled" onClick={() => setPage((p) => p-10)}>prev</button>
+        <button className="btn-secondary" onClick={() => setPage((p) => p+10)}>next</button>
         </div>
         :
-        <div>
-          <button className="btn" onClick={() => setPage((p) => p-10)}>Prev</button>
-          <button className="btn-secondary" onClick={() => setPage((p) => p+10)}>Next</button>
+        <div className='flex justify-start'>
+          <div className="btn  flex justify-center items-center" onClick={() => setPage((p) => p-10)}>
+              <NavigateBeforeIcon  fontSize="large"  />
+          </div>
+          <div className="btn-secondary flex justify-center items-center " onClick={() => setPage((p) => p+10)} >
+              <NavigateNextIcon  fontSize="large"  />
+          </div>
         </div>
       }
     </div>
