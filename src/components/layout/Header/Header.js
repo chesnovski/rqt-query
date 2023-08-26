@@ -31,7 +31,7 @@ const Header = () => {
     {/* Create mobile navbar  */}
      { open ? (
       <div className='w-full mb-4 bg-gradient-to-r from-indigo-500 to-blue-100 font-mono md:hidden'>
-        <div className='px-2 pt-2 pb-3 space-y-1'>
+        <div className='px-2 pt-2 pb-2 space-y-1'>
           <a className='ml-2' href="/">Home</a>
           <a className='ml-2' href="/about">About</a>
       </div>

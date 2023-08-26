@@ -49,10 +49,10 @@ const Home = () => {
                         alt="" />
                         <p className='mx-2'>{coin.name}</p>
                       </div>
-                      <p className='mx-1'>{coin.price.toFixed(3)}$</p>
+                      <p className='mx-1 font-mono text-lg'>{coin.price.toFixed(3)}$</p>
                   </div>
                     {coin.priceChange1d ? (
-                      <p className={`w-20 mx-8 my-4 flex items-center justify-center border rounded   px-2 py-2 ${coin.priceChange1d < 0 ? "border-rose-600" : "border-green-400"}`}>{coin.priceChange1d}%</p>
+                      <p className={`w-20 h-10 mx-8 my-4 flex items-center justify-center font-mono text-base border rounded-md   px-2 py-2 ${coin.priceChange1d < 0 ? "border-rose-600" : "border-green-400 animate-pulse"}`}>{coin.priceChange1d}%</p>
                     ) : null}
                   </div>
                 </div>
