@@ -10,7 +10,8 @@ const Header = () => {
     <>
     <div class="header flex">
       <div class="w-5/6 ">
-        <h1 className='ml-16'>Please be calm and take your profit</h1>
+        <h1 className='ml-16 hidden md:block'>Please be calm and take your profit</h1>
+        <h1 className='mx-auto  md:hidden'>Please take your profit</h1>
       </div>
  
     
@@ -27,6 +28,7 @@ const Header = () => {
         </div>
       </div>
     </div>
+    {/* Create mobile navbar  */}
      { open ? (
       <div className='w-full mb-4 bg-gradient-to-r from-indigo-500 to-blue-100 font-mono md:hidden'>
         <div className='px-2 pt-2 pb-3 space-y-1 sm:px-3'>
