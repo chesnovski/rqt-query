@@ -51,7 +51,9 @@ const Home = () => {
                       </div>
                       <p className='mx-1'>{coin.price.toFixed(3)}$</p>
                   </div>
-                    <p className='mx-8 my-6'>{coin.priceChange1d}%</p>
+                    {coin.priceChange1d ? (
+                      <p className={`w-20 mx-8 my-4 flex items-center justify-center border rounded   px-2 py-2 ${coin.priceChange1d < 0 ? "border-rose-600" : "border-green-400"}`}>{coin.priceChange1d}%</p>
+                    ) : null}
                   </div>
                 </div>
                   <hr className='h-px my-2 bg-gray-200 border-0 dark:bg-gray-700'/>
@@ -63,7 +65,7 @@ const Home = () => {
         </div>
 
 
-        <div className='hidden  md:block  md:items-center '>
+        <div className='hidden md:flex md:justify-center md:items-center'>
           <img src="https://alternative.me/crypto/fear-and-greed-index.png" alt="Latest Crypto Fear & Greed Index" />
         </div>
 
