@@ -52,7 +52,7 @@ const Home = () => {
                       <p className='mx-1 font-mono text-lg'>{coin.price.toFixed(3)}$</p>
                   </div>
                     {coin.priceChange1d ? (
-                      <p className={`w-20 h-10 mx-8 my-4 flex items-center justify-center font-mono text-base border rounded-md   px-2 py-2 ${coin.priceChange1d < 0 ? "border-rose-600" : "border-green-400 animate-pulse"}`}>{coin.priceChange1d}%</p>
+                      <p className={`w-20 h-10 mx-8 my-4 flex items-center justify-center font-mono text-base border-2 rounded-md   px-2 py-2   ${coin.priceChange1d > 4 ? "border-green-600 animate-ping hover:animate-none border-4 " : coin.priceChange1d < -4 ? "border-rose-600 border-4 animate-ping hover:animate-none": coin.priceChange1d < 0 ? "border-rose-600": "border-green-600"}`}>{coin.priceChange1d}%</p>
                     ) : null}
                   </div>
                 </div>
