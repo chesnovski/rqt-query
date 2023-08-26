@@ -8,7 +8,7 @@
   }
 
   .header {
-    @apply mb-6 bg-gradient-to-r from-indigo-500 to-blue-100 font-mono text-lg text-gray-800 text-center font-bold;
+    @apply mb-2 bg-gradient-to-r from-indigo-500 to-blue-100 font-mono text-lg text-gray-800 text-center font-bold;
   }
 
   .bg-transparent {
