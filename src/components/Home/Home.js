@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useQuery } from 'react-query';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
+import styles from './Home.module.scss'
 
 
 
@@ -34,17 +35,17 @@ const Home = () => {
 
   return (
   <>
-    <div class="mx-12 grid grid-flow-col gap-48">
+    <div class={styles.parent}>
         <div>
               {data ? 
           <div >
             {data.map(coin => (
               <div>
-                <div className='max-sm:flex max-sm:justify-normal max-sm:items-center' key={coin.id}>
+                <div className={styles.main} key={coin.id}>
                   <div className='grid grid-cols-2 gap-4'>
                     <div className='mx-6'>
                       <div className='flex justify-normal items-center'>
-                        <img className="rounded-full h-8 mb-2 inline-block mr-2"
+                        <img className={styles.coinImg}
                         src={coin.icon}
                         alt="" />
                         <p className='mx-2'>{coin.name}</p>
@@ -52,7 +53,7 @@ const Home = () => {
                       <p className='mx-1 font-mono text-lg'>{coin.price.toFixed(3)}$</p>
                   </div>
                     {coin.priceChange1d ? (
-                      <p className={`w-20 h-10 mx-8 my-4 flex items-center justify-center font-mono text-base border-2 rounded-md   px-2 py-2   ${coin.priceChange1d > 4 ? "border-green-600 animate-ping hover:animate-none border-4 " : coin.priceChange1d < -4 ? "border-rose-600 border-4 animate-ping hover:animate-none": coin.priceChange1d < 0 ? "border-rose-600": "border-green-600"}`}>{coin.priceChange1d}%</p>
+                      <p className={` ${styles.priceChanged} ${coin.priceChange1d > 4 ? "border-green-600 animate-ping hover:animate-none border-4 " : coin.priceChange1d < -4 ? "border-rose-600 border-4 animate-ping hover:animate-none": coin.priceChange1d < 0 ? "border-rose-600": "border-green-600"}`}>{coin.priceChange1d}%</p>
                     ) : null}
                   </div>
                 </div>
