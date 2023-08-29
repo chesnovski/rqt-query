@@ -10,6 +10,6 @@
     }
 
     .priceChanged {
-        @apply w-20 h-10 mx-8 my-4 flex items-center justify-center font-mono text-base border-2 rounded-md   px-2 py-2 transition-opacity
+        @apply w-20 h-10 mx-8 my-4 flex items-center justify-center font-serif text-base rounded-md   px-2 py-2 transition-opacity bg-opacity-25
     }
 }
