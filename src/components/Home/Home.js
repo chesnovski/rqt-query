@@ -4,6 +4,8 @@ import axios from 'axios'
 import { useQuery } from 'react-query';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import styles from './Home.module.scss'
 
 
@@ -53,7 +55,10 @@ const Home = () => {
                       <p className='mx-1 font-mono text-lg'>{coin.price.toFixed(3)}$</p>
                   </div>
                     {coin.priceChange1d ? (
-                      <p className={` ${styles.priceChanged} ${coin.priceChange1d > 4 ? " bg-green-600 text-green-800   transition-opacity animate-ping-short hover:animate-none " : coin.priceChange1d < -4 ? "bg-rose-600 animate-ping-short text-red-800  hover:animate-none": coin.priceChange1d < 0 ? "bg-rose-600 text-red-800": "bg-green-600 text-green-800  "}`}>{coin.priceChange1d} %</p>
+                      <div className={` ${styles.priceChanged} ${coin.priceChange1d > 4 ? " bg-green-600 text-green-800   transition-opacity animate-ping-short hover:animate-none " : coin.priceChange1d < -4 ? "bg-rose-600 animate-ping-short text-red-800  hover:animate-none": coin.priceChange1d < 0 ? "bg-rose-600 text-red-800": "bg-green-600 text-green-800  "}`}>
+                        {coin.priceChange1d > 0 ? <ArrowDropUpIcon/> : <ArrowDropDownIcon/> }
+                        {coin.priceChange1d} %
+                        </div>
                     ) : null}
                   </div>
                 </div>
