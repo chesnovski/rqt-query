@@ -1,4 +1,4 @@
-import "../../global.css";
+import "../../../../global.css";
 import React, { useState } from "react";
 import axios from "axios";
 import { useQuery } from "react-query";
@@ -7,14 +7,7 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import styles from "./Home.module.scss";
-
-interface IHome {
-  id: string;
-  icon: string;
-  name: string;
-  price: number;
-  priceChange1d: number;
-}
+import { IHome } from "./home.interface";
 
 async function fetchCoins(skip: number) {
   const { data } = await axios.get(
