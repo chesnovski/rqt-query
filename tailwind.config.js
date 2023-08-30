@@ -3,6 +3,11 @@ module.exports = {
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
     extend: {
+      width: {
+        '22': '5.5rem',
+        '26': '6.5rem'
+        
+      },
       
       keyframes: {
         ping: {

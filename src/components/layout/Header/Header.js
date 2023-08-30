@@ -8,7 +8,7 @@ const Header = () => {
   }
   return (
     <>
-    <div class="header flex">
+    <div class="header flex ">
       <div class="w-5/6 ">
         <h1 className='ml-16 hidden md:block'>Please be calm and take your profit</h1>
         <h1 className='mx-auto  md:hidden'>Please take your profit</h1>
@@ -30,7 +30,7 @@ const Header = () => {
     </div>
     {/* Create mobile navbar  */}
      { open ? (
-      <div className='w-full mb-4 bg-gradient-to-r from-indigo-500 to-blue-100 font-mono md:hidden'>
+      <div className='w-full mb-4 bg-gradient-to-r from-indigo-500 to-blue-100  font-mono md:hidden'>
         <div className='px-2 pt-2 pb-2 space-y-1'>
           <a className='ml-2' href="/">Home</a>
           <a className='ml-2' href="/about">About</a>
