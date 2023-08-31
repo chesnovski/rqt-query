@@ -23,16 +23,16 @@ const Header = () => {
 
   return (
     <>
-      <div className="header flex ">
-        <div className="w-2/3 py-1">
-          <h1 className="ml-16 hidden md:block">
+      <div className="header">
+        <div className="w-2/3 lg:1/2 py-1">
+          <h1 className="ml-16 hidden lg:block">
             Please be calm and take your profit
           </h1>
-          <h1 className="mx-auto  md:hidden">Please take your profit</h1>
+          <h1 className="mx-auto  lg:hidden">Please take your profit</h1>
         </div>
 
-        <div className="w-1/3">
-          <div className="hidden md:flex md:justify-center md:content-end">
+        <div className="w-1/3 lg:w-1/2 flex justify-center mx-2 ">
+          <div className="hidden lg:flex lg:justify-center lg:content-end">
             <div className="mx-4 py-1">
               <input
                 className="mx-2 border rounded px-2"
@@ -60,7 +60,7 @@ const Header = () => {
               </a>
             </div>
           </div>
-          <div className="md:hidden">
+          <div className="lg:hidden justify-end mx-4">
             <div onClick={handleMenu} className="my-2 mx-2 space-y-2">
               <span className="block w-8 h-0.5 bg-gray-600"></span>
               <span className="block w-5 h-0.5 bg-gray-600"></span>
@@ -70,7 +70,7 @@ const Header = () => {
       </div>
       {/* Create mobile navbar  */}
       {open ? (
-        <div className="w-full mb-4 bg-gradient-to-r from-indigo-500 to-blue-100  font-mono md:hidden">
+        <div className="w-full mb-4 bg-gradient-to-r from-indigo-500 to-blue-100  font-mono lg:hidden">
           <div className="px-2 pt-2 pb-2 space-y-1">
             <a className="ml-2" href="/">
               Home

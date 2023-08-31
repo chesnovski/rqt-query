@@ -71,7 +71,7 @@ const SearchMenu: FC = () => {
             </div>
           </div>
         ) : (
-          <div className="text-base font-mono font-bold text-xl">
+          <div className=" font-mono font-bold text-xl">
             Please write entire name of coin
           </div>
         )}
