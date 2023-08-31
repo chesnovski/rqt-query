@@ -6,6 +6,8 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import Layout from "./components/layout/Layout";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 
 const queryClient = new QueryClient();
 
@@ -13,13 +15,15 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <BrowserRouter>
-    <QueryClientProvider client={queryClient}>
-      <Layout>
-        <App />
-      </Layout>
-    </QueryClientProvider>
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <Layout>
+          <App />
+        </Layout>
+      </QueryClientProvider>
+    </BrowserRouter>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

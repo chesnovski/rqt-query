@@ -1,9 +1,12 @@
 import React, { FC, useState } from "react";
 import axios from "axios";
 import { useQuery } from "react-query";
-import styles from "../Home/Home.module.scss";
+import styles from "../SearchMenu/SearchMenu.module.scss";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import { useDispatch, useSelector } from "react-redux";
+import { addSearch } from "../../../../store/reducer/coinReducer";
+import { RootState } from "../../../../store/store";
 
 async function fetchCoin(name: string) {
   const { data } = await axios.get(
@@ -14,6 +17,13 @@ async function fetchCoin(name: string) {
 }
 
 const SearchMenu: FC = () => {
+  const dispatch = useDispatch();
+  const coin = useSelector((state: RootState) => state.coin.coin);
+
+  const addCoinToSearch = (name: string) => {
+    dispatch(addSearch(name));
+  };
+
   const [coinName, setCoinName] = useState("solana");
   const { data, isLoading, isError } = useQuery({
     queryKey: ["coin", coinName],
@@ -64,6 +74,15 @@ const SearchMenu: FC = () => {
           </div>
         </div>
         <hr className="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
+      </div>
+      <div className=" w-48 h-10 flex justify-between align-center  mx-4 my-4 rounded-2 border-gray-600 border px-4 py-2">
+        <div className="mx-2">{coin}</div>
+        <button
+          className="mx-2"
+          onClick={() => addCoinToSearch(String(prompt()))}
+        >
+          Add
+        </button>
       </div>
     </div>
   );
