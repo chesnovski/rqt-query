@@ -23,81 +23,77 @@ const Header = () => {
 
   return (
     <>
-      <div className="header">
-        <div className="w-2/3 lg:1/2 py-1">
-          <h1 className="ml-16 hidden lg:block">
+      <div className="w-full max-lg:px-4 lg:px-16 flex justify-between content-center bg-gradient-to-r from-indigo-500 to-blue-100 font-mono text-lg text-gray-800 text-center font-bold">
+        <div className="">
+          <div className="hidden lg:block">
             Please be calm and take your profit
-          </h1>
-          <h1 className="mx-auto  lg:hidden">Please take your profit</h1>
+          </div>
+          <div className="lg:hidden">Please take your profit</div>
         </div>
 
-        <div className="w-1/3 lg:w-1/2 flex justify-center mx-2 ">
-          <div className="hidden lg:flex lg:justify-center lg:content-end">
-            <div className="mx-4 py-1">
+        <div className=" max-lg:hidden flex justify-between content-center text-center">
+          <form className="mx-2">
+            <input
+              className="mx-2 border rounded px-2"
+              type="text"
+              placeholder="Search Coin"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            />
+            <Link to="/searchcoin">
               <input
-                className="mx-2 border rounded px-2"
-                type="text"
-                placeholder="Search Coin"
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-              />
-              <Link to="/searchcoin">
-                <button
-                  className="hover:bg-gray-600 hover:bg-opacity-20 rounded border hover:border-transparent px-2   text-black bg-transparent"
-                  disabled={!text}
-                  onClick={handleOnClick}
-                >
-                  Search
-                </button>
-              </Link>
-            </div>
-            <div className="px-2 py-1">
-              <a className="mr-4" href="/">
-                Home
-              </a>
-              <a className="mr-4" href="/about">
-                About
-              </a>
-            </div>
-          </div>
-          <div className="lg:hidden justify-end mx-4">
-            <div onClick={handleMenu} className="my-2 mx-2 space-y-2">
-              <span className="block w-8 h-0.5 bg-gray-600"></span>
-              <span className="block w-5 h-0.5 bg-gray-600"></span>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* Create mobile navbar  */}
-      {open ? (
-        <div className="w-full mb-4 bg-gradient-to-r from-indigo-500 to-blue-100  font-mono lg:hidden">
-          <div className="px-2 pt-2 pb-2 space-y-1">
-            <a className="ml-2" href="/">
+                className="font-bold"
+                type="submit"
+                disabled={!text}
+                onClick={handleOnClick}
+                value="Search"
+              ></input>
+            </Link>
+          </form>
+          <div className="font-bold">
+            <a className="mx-2" href="/">
               Home
             </a>
-            <a className="ml-2" href="/about">
+            <a className="mx-2" href="/about">
               About
             </a>
           </div>
-          <div className="flex justify-start content-center my-4">
-            <div className="">
+        </div>
+        <div
+          onClick={handleMenu}
+          className="my-2 mx-2 space-y-2 max-lg:mr-4 lg:hidden"
+        >
+          <span className="block w-8 h-0.5 bg-gray-600"></span>
+          <span className="block w-5 h-0.5 bg-gray-600"></span>
+        </div>
+      </div>
+      {open ? (
+        <div className="w-full mb-4 pt-2 flex justify-between content-center bg-gradient-to-r from-indigo-500 to-blue-100  font-mono lg:hidden  max-sm:block">
+          <form className="mx-2 mb-1">
+            <input
+              className="mx-2 border rounded px-2"
+              type="text"
+              placeholder="Search Coin"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            />
+            <Link to="/searchcoin">
               <input
-                className="mx-2"
-                type="text"
-                placeholder="Search Coin"
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-              />
-              <Link to="/searchcoin">
-                <button
-                  className="bg-gray-600 rounded border px-2 py-1 bg-opacity-20  text-black"
-                  disabled={!text}
-                  onClick={handleOnClick}
-                >
-                  Search
-                </button>
-              </Link>
-            </div>
+                className="font-bold"
+                type="submit"
+                disabled={!text}
+                onClick={handleOnClick}
+                value="Search"
+              ></input>
+            </Link>
+          </form>
+          <div className="font-bold px-2">
+            <a className="mx-2" href="/">
+              Home
+            </a>
+            <a className="mx-2" href="/about">
+              About
+            </a>
           </div>
         </div>
       ) : null}
