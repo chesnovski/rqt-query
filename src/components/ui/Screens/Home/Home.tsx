@@ -85,6 +85,36 @@ const Home = () => {
           ) : (
             <div> No data </div>
           )}
+          <div className="">
+            {page === 0 ? (
+              <div className="flex justify-start">
+                <div className="btn-disabled  text-center">
+                  <NavigateBeforeIcon fontSize="large" />
+                </div>
+                <div
+                  className="btn-secondary text-center"
+                  onClick={() => setPage((p) => p + 10)}
+                >
+                  <NavigateNextIcon fontSize="large" />
+                </div>
+              </div>
+            ) : (
+              <div className="flex justify-start">
+                <div
+                  className="btn  text-center"
+                  onClick={() => setPage((p) => p - 10)}
+                >
+                  <NavigateBeforeIcon fontSize="large" />
+                </div>
+                <div
+                  className="btn-secondary text-center"
+                  onClick={() => setPage((p) => p + 10)}
+                >
+                  <NavigateNextIcon fontSize="large" />
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
         <div className="hidden md:flex md:justify-center md:items-center">
@@ -93,37 +123,6 @@ const Home = () => {
             alt="Latest Crypto Fear & Greed Index"
           />
         </div>
-      </div>
-
-      <div className="mx-8 mt-4  md:ml-32 md:mt-6 ">
-        {page === 0 ? (
-          <div className="flex justify-start">
-            <div className="btn-disabled  flex justify-center items-center">
-              <NavigateBeforeIcon fontSize="large" />
-            </div>
-            <div
-              className="btn-secondary flex justify-center items-center "
-              onClick={() => setPage((p) => p + 10)}
-            >
-              <NavigateNextIcon fontSize="large" />
-            </div>
-          </div>
-        ) : (
-          <div className="flex justify-start">
-            <div
-              className="btn  flex justify-center items-center"
-              onClick={() => setPage((p) => p - 10)}
-            >
-              <NavigateBeforeIcon fontSize="large" />
-            </div>
-            <div
-              className="btn-secondary flex justify-center items-center "
-              onClick={() => setPage((p) => p + 10)}
-            >
-              <NavigateNextIcon fontSize="large" />
-            </div>
-          </div>
-        )}
       </div>
     </>
   );
