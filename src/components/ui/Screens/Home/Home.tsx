@@ -92,7 +92,7 @@ const Home = () => {
           )}
           <div className="mx-2 my-4">
             {page === 0 ? (
-              <div className="flex justify-center">
+              <div className="flex justify-start  max-sm:justify-between">
                 <div className="btn-disabled  text-center">
                   <NavigateBeforeIcon fontSize="large" />
                 </div>
@@ -104,7 +104,7 @@ const Home = () => {
                 </div>
               </div>
             ) : (
-              <div className="flex justify-center">
+              <div className=" flex justify-start  max-sm:justify-between">
                 <div
                   className="btn  text-center"
                   onClick={() => setPage((p) => p - 10)}
@@ -122,7 +122,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="hidden md:flex md:justify-center md:items-center">
+        <div className="max-sm:hidden flex justify-center items-center ">
           <img
             src="https://alternative.me/crypto/fear-and-greed-index.png"
             alt="Latest Crypto Fear & Greed Index"
