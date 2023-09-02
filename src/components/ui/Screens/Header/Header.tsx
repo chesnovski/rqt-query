@@ -23,13 +23,15 @@ const Header = () => {
 
   return (
     <>
-      <div className="w-full max-lg:px-4 lg:px-16 flex justify-between content-center bg-gradient-to-r from-indigo-500 to-blue-100 font-mono text-lg text-gray-800 text-center font-bold">
-        <div className="">
-          <div className="hidden lg:block">
-            Please be calm and take your profit
+      <div className="w-full max-lg:px-4  my-4 py-2 lg:px-16 flex justify-between content-center bg-gradient-to-r from-indigo-500 to-blue-100 font-mono text-lg text-gray-800 text-center font-bold">
+        <Link to="/">
+          <div className="">
+            <div className="hidden lg:block">
+              Please be calm and take your profit
+            </div>
+            <div className="lg:hidden">Please take your profit</div>
           </div>
-          <div className="lg:hidden">Please take your profit</div>
-        </div>
+        </Link>
 
         <div className=" max-lg:hidden flex justify-between content-center text-center">
           <form className="mx-2">

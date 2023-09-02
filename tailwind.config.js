@@ -19,7 +19,7 @@ module.exports = {
         },
       },
       animation: {
-        'ping-short': 'ping 1s cubic-bezier(0, 0, 0.2, 1) 8'
+        'ping-short': 'ping 1s cubic-bezier(0, 0, 0.2, 1) 5'
       }
     },
   },

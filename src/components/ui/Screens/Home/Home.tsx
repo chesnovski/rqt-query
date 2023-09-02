@@ -41,10 +41,10 @@ const Home = () => {
             <div>
               {data.map((coin: IHome) => (
                 <div>
-                  <div className={styles.main} key={coin.id}>
-                    <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className={styles.main} key={coin.id}>
                       <div className="mx-6">
-                        <div className="flex justify-normal items-center">
+                        <div className="flex justify-normal content-center">
                           <img
                             className={styles.coinImg}
                             src={coin.icon}
@@ -56,27 +56,27 @@ const Home = () => {
                           {coin.price.toFixed(3)}$
                         </p>
                       </div>
-                      {coin.priceChange1d ? (
-                        <div
-                          className={` ${styles.priceChanged} ${
-                            coin.priceChange1d > 4
-                              ? " bg-green-600 text-green-800   transition-opacity animate-ping-short hover:animate-none "
-                              : coin.priceChange1d < -4
-                              ? "bg-rose-600 animate-ping-short text-red-800  hover:animate-none"
-                              : coin.priceChange1d < 0
-                              ? "bg-rose-600 text-red-800"
-                              : "bg-green-600 text-green-800  "
-                          }`}
-                        >
-                          {coin.priceChange1d > 0 ? (
-                            <ArrowDropUpIcon />
-                          ) : (
-                            <ArrowDropDownIcon />
-                          )}
-                          {coin.priceChange1d} %
-                        </div>
-                      ) : null}
                     </div>
+                    {coin.priceChange1d ? (
+                      <div
+                        className={` ${styles.priceChanged} ${
+                          coin.priceChange1d > 4
+                            ? " bg-green-600 text-green-800   transition-opacity animate-ping-short hover:animate-none "
+                            : coin.priceChange1d < -4
+                            ? "bg-rose-600 animate-ping-short text-red-800  hover:animate-none"
+                            : coin.priceChange1d < 0
+                            ? "bg-rose-600 text-red-800"
+                            : "bg-green-600 text-green-800  "
+                        }`}
+                      >
+                        {coin.priceChange1d > 0 ? (
+                          <ArrowDropUpIcon />
+                        ) : (
+                          <ArrowDropDownIcon />
+                        )}
+                        {coin.priceChange1d} %
+                      </div>
+                    ) : null}
                   </div>
                   <hr className="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
                 </div>

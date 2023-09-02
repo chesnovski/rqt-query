@@ -21,7 +21,7 @@ const SearchMenu: FC = () => {
   //   const [coinName, setCoinName] = useState("solana");
   const { data, isLoading, isError } = useQuery({
     queryKey: ["coin", coinName],
-    queryFn: () => fetchCoin(coinName),
+    queryFn: () => fetchCoin(coinName.toLowerCase()),
     keepPreviousData: true,
   });
 
@@ -38,7 +38,7 @@ const SearchMenu: FC = () => {
       <div>
         {data ? (
           <div className={styles.main} key={data.id}>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="flex justify-between content-center">
               <div className="mx-6">
                 <div className="flex justify-normal items-center">
                   <img className={styles.coinImg} src={data.icon} alt="" />
@@ -72,7 +72,7 @@ const SearchMenu: FC = () => {
           </div>
         ) : (
           <div className=" font-mono font-bold text-xl">
-            Please write entire name of coin
+            Please enter full name of coin
           </div>
         )}
 
