@@ -4,14 +4,14 @@
 
 @layer components {
   .btn {
-    @apply w-32 h-12 py-2 px-4 mr-12 bg-transparent font-mono text-lg text-black  hover:bg-gradient-to-r from-indigo-500 hover:text-white border  font-bold  rounded-full;
+    @apply w-32 h-12 py-2 px-4 mr-12 bg-transparent font-mono text-lg text-black  hover:bg-gradient-to-r from-indigo-500 hover:text-white border  font-bold  rounded-md;
   }
 
   .btn-disabled {
-    @apply w-32 h-12 py-2 px-4 mr-12 bg-indigo-500 bg-gradient-to-r from-indigo-500 to-indigo-200  font-mono text-lg text-white font-bold  rounded-full;
+    @apply w-32 h-12 py-2 px-4 mr-12 bg-indigo-500 bg-gradient-to-r from-indigo-500 to-indigo-200  font-mono text-lg text-white font-bold  rounded-md;
   }
 
   .btn-secondary {
-    @apply w-32 h-12 py-2 px-4 mr-4 bg-transparent font-mono text-lg hover:bg-gradient-to-r from-gray-300 text-black font-semibold hover:text-white  border border-gray-200 hover:border-transparent rounded-full;
+    @apply w-32 h-12 py-2 px-4 mr-4 bg-transparent font-mono text-lg hover:bg-gradient-to-r from-gray-300 text-black font-semibold hover:text-white  border border-gray-200 hover:border-transparent rounded-md;
   }
 }

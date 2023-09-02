@@ -50,7 +50,12 @@ const Home = () => {
                             src={coin.icon}
                             alt=""
                           />
-                          <p className="mx-2">{coin.name}</p>
+                          <div className="flex justify-normal items-center">
+                            <p className="mx-2">{coin.name}</p>
+                            <p className="mx-2 text-xs text-gray-400 ">
+                              {coin.symbol}
+                            </p>
+                          </div>
                         </div>
                         <p className="mx-1 font-mono text-lg">
                           {coin.price.toFixed(3)}$
@@ -85,9 +90,9 @@ const Home = () => {
           ) : (
             <div> No data </div>
           )}
-          <div className="">
+          <div className="mx-2 my-4">
             {page === 0 ? (
-              <div className="flex justify-start">
+              <div className="flex justify-center">
                 <div className="btn-disabled  text-center">
                   <NavigateBeforeIcon fontSize="large" />
                 </div>
@@ -99,7 +104,7 @@ const Home = () => {
                 </div>
               </div>
             ) : (
-              <div className="flex justify-start">
+              <div className="flex justify-center">
                 <div
                   className="btn  text-center"
                   onClick={() => setPage((p) => p - 10)}

@@ -6,4 +6,5 @@ export interface IHome{
     name: string;
     price: number;
     priceChange1d: number;
+    symbol:string
 }
