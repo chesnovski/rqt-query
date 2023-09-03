@@ -8,6 +8,7 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
+import { StyledEngineProvider } from "@mui/material";
 
 const queryClient = new QueryClient();
 
@@ -15,15 +16,17 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <QueryClientProvider client={queryClient}>
-        <Layout>
-          <App />
-        </Layout>
-      </QueryClientProvider>
-    </BrowserRouter>
-  </Provider>
+  <StyledEngineProvider injectFirst>
+    <Provider store={store}>
+      <BrowserRouter>
+        <QueryClientProvider client={queryClient}>
+          <Layout>
+            <App />
+          </Layout>
+        </QueryClientProvider>
+      </BrowserRouter>
+    </Provider>
+  </StyledEngineProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -6,8 +6,11 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import InfoIcon from "@mui/icons-material/Info";
 import styles from "./Home.module.scss";
 import { IHome } from "./home.interface";
+import ToolTips from "../../../ToolTips";
+import Tooltip from "@mui/material/Tooltip";
 
 async function fetchCoins(skip: number) {
   const { data } = await axios.get(
@@ -24,6 +27,9 @@ const Home = () => {
     queryFn: () => fetchCoins(page),
     keepPreviousData: true,
   });
+
+  const coinMarketCapText =
+    "The total market value of a cryptocurrency's circulating supply. It is analogous to the free-float capitalization in the stock market.";
 
   if (isLoading) {
     return <h3> Loading...</h3>;
@@ -57,9 +63,22 @@ const Home = () => {
                             </p>
                           </div>
                         </div>
-                        <p className="mx-1 font-mono text-lg">
-                          {coin.price.toFixed(3)}$
-                        </p>
+                        <div className="flex justify-start items-center">
+                          <p className="mx-1 font-mono text-lg">
+                            {coin.price.toFixed(3)}$
+                          </p>
+                          <div className="max-sm:hidden mx-2 flex justify-normal items-center">
+                            <p className=" mx-1 font-mono text-lg">
+                              {(coin.marketCap / 1000000000).toFixed(3)}B$
+                            </p>
+                            <Tooltip
+                              className="text-base text-gray-400"
+                              title={coinMarketCapText}
+                            >
+                              <InfoIcon />
+                            </Tooltip>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     {coin.priceChange1d ? (
