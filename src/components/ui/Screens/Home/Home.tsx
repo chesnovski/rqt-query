@@ -11,6 +11,8 @@ import styles from "./Home.module.scss";
 import { IHome } from "./home.interface";
 import ToolTips from "../../../ToolTips";
 import Tooltip from "@mui/material/Tooltip";
+import SkeletonLoader from "../SkeletonLoader";
+import { TRUE } from "node-sass";
 
 async function fetchCoins(skip: number) {
   const { data } = await axios.get(
@@ -32,11 +34,15 @@ const Home = () => {
     "The total market value of a cryptocurrency's circulating supply. It is analogous to the free-float capitalization in the stock market.";
 
   if (isLoading) {
-    return <h3> Loading...</h3>;
+    return (
+      <div className="mx-11 mb-6">
+        <SkeletonLoader className="h-10 mt-6" />
+      </div>
+    );
   }
 
   if (isError) {
-    return <h3> Error receiving data</h3>;
+    return <h2>Error to loading data</h2>;
   }
 
   return (
