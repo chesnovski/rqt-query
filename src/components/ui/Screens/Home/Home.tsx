@@ -9,10 +9,8 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import InfoIcon from "@mui/icons-material/Info";
 import styles from "./Home.module.scss";
 import { IHome } from "./home.interface";
-import ToolTips from "../../../ToolTips";
 import Tooltip from "@mui/material/Tooltip";
 import SkeletonLoader from "../SkeletonLoader";
-import { TRUE } from "node-sass";
 
 async function fetchCoins(skip: number) {
   const { data } = await axios.get(
@@ -36,7 +34,7 @@ const Home = () => {
   if (isLoading) {
     return (
       <div className="mx-11 mb-6">
-        <SkeletonLoader className="h-10 mt-6" />
+        <SkeletonLoader count={3} className="h-10 mt-6" />
       </div>
     );
   }
