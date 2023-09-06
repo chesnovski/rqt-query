@@ -11,6 +11,7 @@ import styles from "./Home.module.scss";
 import { IHome } from "./home.interface";
 import Tooltip from "@mui/material/Tooltip";
 import SkeletonLoader from "../SkeletonLoader";
+import { Link } from "react-router-dom";
 
 async function fetchCoins(skip: number) {
   const { data } = await axios.get(
@@ -54,19 +55,21 @@ const Home = () => {
                   <div className="grid grid-cols-2 gap-4">
                     <div className={styles.main} key={coin.id}>
                       <div className="mx-6">
-                        <div className="flex justify-normal content-center">
-                          <img
-                            className={styles.coinImg}
-                            src={coin.icon}
-                            alt=""
-                          />
-                          <div className="flex justify-normal items-center">
-                            <p className="mx-2">{coin.name}</p>
-                            <p className="mx-2 text-xs text-gray-400 ">
-                              {coin.symbol}
-                            </p>
+                        <Link to={coin.websiteUrl}>
+                          <div className="flex justify-normal content-center">
+                            <img
+                              className={styles.coinImg}
+                              src={coin.icon}
+                              alt=""
+                            />
+                            <div className="flex justify-normal items-center">
+                              <p className="mx-2">{coin.name}</p>
+                              <p className="mx-2 text-xs text-gray-400 ">
+                                {coin.symbol}
+                              </p>
+                            </div>
                           </div>
-                        </div>
+                        </Link>
                         <div className="flex justify-start items-center">
                           <p className="mx-1 font-mono text-lg">
                             {coin.price.toFixed(3)}$

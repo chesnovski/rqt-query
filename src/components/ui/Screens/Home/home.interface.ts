@@ -8,4 +8,5 @@ export interface IHome{
     priceChange1d: number;
     symbol:string
     marketCap:number
+    websiteUrl:string
 }
