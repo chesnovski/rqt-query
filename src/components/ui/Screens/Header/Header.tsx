@@ -36,7 +36,7 @@ const Header = () => {
         <div className=" max-lg:hidden flex justify-between content-center text-center">
           <form className="mx-2">
             <input
-              className="mx-2 border rounded px-2"
+              className="mx-2 border rounded px-2 outline-none"
               type="text"
               placeholder="Search Coin"
               value={text}
@@ -44,7 +44,11 @@ const Header = () => {
             />
             <Link to="/searchcoin">
               <input
-                className="font-bold"
+                className={
+                  text
+                    ? "border-indigo-500/25 border rounded font-bold px-1 "
+                    : "font-bold"
+                }
                 type="submit"
                 disabled={!text}
                 onClick={handleOnClick}
@@ -73,7 +77,7 @@ const Header = () => {
         <div className="w-full mb-4 pt-2 flex justify-between content-center bg-gradient-to-r from-indigo-500 to-blue-100  font-mono lg:hidden  max-sm:block">
           <form className="mx-2 mb-1">
             <input
-              className="mx-2 border rounded px-2"
+              className="mx-2 border rounded px-2 outline-none"
               type="text"
               placeholder="Search Coin"
               value={text}
@@ -81,7 +85,7 @@ const Header = () => {
             />
             <Link to="/searchcoin">
               <input
-                className="font-bold"
+                className="font-bold text"
                 type="submit"
                 disabled={!text}
                 onClick={handleOnClick}
