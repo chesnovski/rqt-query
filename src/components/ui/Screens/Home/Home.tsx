@@ -72,7 +72,7 @@ const Home = () => {
                             {coin.price.toFixed(3)}$
                           </p>
                           <div className="max-sm:hidden mx-2 flex justify-normal items-center">
-                            <p className=" mx-1 font-mono text-lg">
+                            <p className=" border-l-2 px-2 border-gray-200 dark:border-gray-700  mx-1 font-mono text-lg">
                               {(coin.marketCap / 1000000000).toFixed(3)}B$
                             </p>
                             <Tooltip
