@@ -12,6 +12,12 @@ import { IHome } from "./home.interface";
 import Tooltip from "@mui/material/Tooltip";
 import SkeletonLoader from "../SkeletonLoader";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../../store/store";
+import {
+  DecreasePageAction,
+  IncreasePageAction,
+} from "../../../../store/reducer/pageReducer";
 
 async function fetchCoins(skip: number) {
   const { data } = await axios.get(
@@ -22,12 +28,20 @@ async function fetchCoins(skip: number) {
 }
 
 const Home = () => {
-  const [page, setPage] = useState(0);
+  const dispatch = useDispatch();
+  const page = useSelector((state: RootState) => state.page.page);
   const { data, isLoading, isError } = useQuery({
     queryKey: ["coins", page],
     queryFn: () => fetchCoins(page),
     keepPreviousData: true,
   });
+
+  const increasePage = () => {
+    dispatch(IncreasePageAction());
+  };
+  const decreasePage = () => {
+    dispatch(DecreasePageAction());
+  };
 
   const coinMarketCapText =
     "The total market value of a cryptocurrency's circulating supply. It is analogous to the free-float capitalization in the stock market.";
@@ -124,22 +138,19 @@ const Home = () => {
                 </div>
                 <div
                   className="btn-secondary text-center"
-                  onClick={() => setPage((p) => p + 10)}
+                  onClick={increasePage}
                 >
                   <NavigateNextIcon fontSize="large" />
                 </div>
               </div>
             ) : (
               <div className=" flex justify-start  max-sm:justify-between">
-                <div
-                  className="btn  text-center"
-                  onClick={() => setPage((p) => p - 10)}
-                >
+                <div className="btn  text-center" onClick={decreasePage}>
                   <NavigateBeforeIcon fontSize="large" />
                 </div>
                 <div
                   className="btn-secondary text-center"
-                  onClick={() => setPage((p) => p + 10)}
+                  onClick={increasePage}
                 >
                   <NavigateNextIcon fontSize="large" />
                 </div>
