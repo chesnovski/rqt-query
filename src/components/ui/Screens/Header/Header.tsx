@@ -46,7 +46,7 @@ const Header = () => {
               <input
                 className={
                   text
-                    ? "border-indigo-500/25 border rounded font-bold px-1 "
+                    ? "border-indigo-500/75 border-r-2  font-bold px-1 "
                     : "font-bold"
                 }
                 type="submit"
