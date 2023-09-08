@@ -1,6 +1,6 @@
 
 
-export interface IHome{
+export interface ICoinInfoContainer{
     id: string;
     icon: string;
     name: string;

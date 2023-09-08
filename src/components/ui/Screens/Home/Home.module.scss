@@ -1,16 +1,5 @@
 .parent {
     @apply max-md:mx-2 mx-12  grid grid-flow-col lg:gap-48 md:gap-2; 
     
-    .main {
-        @apply max-sm:flex max-sm:justify-normal max-sm:items-center
-    }
-
-    .coinImg {
-        @apply rounded-full h-8 mb-2 inline-block mr-2
-    }
-
-    .priceChanged {
-        @apply  w-26 h-10 mx-8 my-4 flex items-center justify-start font-serif text-base rounded-md px-2 transition-opacity bg-opacity-25 max-sm:w-22 max-sm:text-xs
-
-    }
+    
 }
