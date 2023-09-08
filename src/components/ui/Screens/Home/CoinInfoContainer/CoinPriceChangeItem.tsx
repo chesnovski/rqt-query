@@ -4,7 +4,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import styles from "./CoinPriceChangeItem.module.scss";
 import { ICoinInfo } from "./coinInfo.interface";
 
-const CoinPriceChangeItem: FC<ICoinInfo> = (coin) => {
+const CoinPriceChangeItem: FC<{ coin: ICoinInfo }> = ({ coin }) => {
   return (
     <>
       {coin.priceChange1d ? (
