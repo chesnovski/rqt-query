@@ -1,7 +1,5 @@
 import React from "react";
 import axios from "axios";
-import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import InfoIcon from "@mui/icons-material/Info";
 import Tooltip from "@mui/material/Tooltip";
 import { Link } from "react-router-dom";
@@ -10,7 +8,8 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../../../store/store";
 import SkeletonLoader from "../../SkeletonLoader";
 import styles from "./CoinInfoContainer.module.scss";
-import { ICoinInfoContainer } from "./coinInfoContainer.interface";
+import { ICoinInfo } from "./coinInfo.interface";
+import CoinPriceChangeItem from "./CoinPriceChangeItem";
 
 async function fetchCoins(skip: number) {
   const { data } = await axios.get(
@@ -46,7 +45,7 @@ const CoinInfoContainer = () => {
     <>
       {data ? (
         <div>
-          {data.map((coin: ICoinInfoContainer) => (
+          {data.map((coin: ICoinInfo) => (
             <div>
               <div className="grid grid-cols-2 gap-4">
                 <div className={styles.main} key={coin.id}>
@@ -84,26 +83,7 @@ const CoinInfoContainer = () => {
                     </div>
                   </div>
                 </div>
-                {coin.priceChange1d ? (
-                  <div
-                    className={` ${styles.priceChanged} ${
-                      coin.priceChange1d > 4
-                        ? " bg-green-600 text-green-800   transition-opacity animate-ping-short hover:animate-none "
-                        : coin.priceChange1d < -4
-                        ? "bg-rose-600 animate-ping-short text-red-800  hover:animate-none"
-                        : coin.priceChange1d < 0
-                        ? "bg-rose-600 text-red-800"
-                        : "bg-green-600 text-green-800  "
-                    }`}
-                  >
-                    {coin.priceChange1d > 0 ? (
-                      <ArrowDropUpIcon />
-                    ) : (
-                      <ArrowDropDownIcon />
-                    )}
-                    {coin.priceChange1d} %
-                  </div>
-                ) : null}
+                <CoinPriceChangeItem {...coin} />
               </div>
               <hr className="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
             </div>
