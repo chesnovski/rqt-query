@@ -38,7 +38,7 @@ const SearchMenu: FC = () => {
       <div>
         {data ? (
           <div className={styles.main} key={data.id}>
-            <div className="flex justify-between content-center">
+            <div className="flex justify-start content-center">
               <div className="mx-6">
                 <div className="flex justify-normal items-center">
                   <img className={styles.coinImg} src={data.icon} alt="" />
