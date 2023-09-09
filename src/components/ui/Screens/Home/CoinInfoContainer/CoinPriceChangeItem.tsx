@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import styles from "./CoinPriceChangeItem.module.scss";

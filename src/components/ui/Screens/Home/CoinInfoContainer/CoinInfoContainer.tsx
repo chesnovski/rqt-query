@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import axios from "axios";
 import InfoIcon from "@mui/icons-material/Info";
 import Tooltip from "@mui/material/Tooltip";
@@ -10,6 +10,7 @@ import SkeletonLoader from "../../SkeletonLoader";
 import styles from "./CoinInfoContainer.module.scss";
 import { ICoinInfo } from "./coinInfo.interface";
 import CoinPriceChangeItem from "./CoinPriceChangeItem";
+import ButtonModule from "./ButtonModule";
 
 async function fetchCoins(skip: number) {
   const { data } = await axios.get(
@@ -19,7 +20,7 @@ async function fetchCoins(skip: number) {
   return data.coins;
 }
 
-const CoinInfoContainer = () => {
+const CoinInfoContainer: FC = () => {
   const page = useSelector((state: RootState) => state.page.page);
   const { data, isLoading, isError } = useQuery({
     queryKey: ["coins", page],
@@ -42,7 +43,7 @@ const CoinInfoContainer = () => {
     return <h2>Error to loading data</h2>;
   }
   return (
-    <>
+    <div>
       {data ? (
         <div>
           {data.map((coin: ICoinInfo) => (
@@ -92,7 +93,8 @@ const CoinInfoContainer = () => {
       ) : (
         <div> No data </div>
       )}
-    </>
+      <ButtonModule />
+    </div>
   );
 };
 
