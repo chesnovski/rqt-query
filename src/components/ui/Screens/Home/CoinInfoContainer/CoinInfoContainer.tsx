@@ -47,7 +47,7 @@ const CoinInfoContainer: FC = () => {
               <div className="grid grid-cols-2 gap-4">
                 <CoinItem coin={coin} />
 
-                <CoinPriceChangeItem coin={coin} />
+                <CoinPriceChangeItem priceChange1d={coin.priceChange1d} />
               </div>
               <hr className="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
             </div>

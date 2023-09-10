@@ -1,11 +1,9 @@
-import React, { FC, useState } from "react";
+import { FC } from "react";
 import axios from "axios";
 import { useQuery } from "react-query";
 import styles from "../SearchMenu/SearchMenu.module.scss";
-import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { RootState } from "../../../../store/store";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import CoinPriceChangeItem from "../Home/CoinInfoContainer/CoinPriceChangeItem";
 import SkeletonLoader from "../SkeletonLoader";
 import CoinItem from "../Home/CoinInfoContainer/CoinItem";
@@ -46,11 +44,11 @@ const SearchMenu: FC = () => {
         {data ? (
           <div className="flex justify-start items-center">
             <CoinItem coin={data} />
-            <CoinPriceChangeItem coin={data} />
+            <CoinPriceChangeItem priceChange1d={data.priceChange1d} />
           </div>
         ) : (
           <div className=" font-mono font-bold text-xl">
-            Please enter full name of coin
+            Please enter full coin name
           </div>
         )}
 

@@ -1,5 +1,5 @@
-import React, { FC, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { FC, useState } from "react";
+import { useDispatch } from "react-redux";
 import { addSearch } from "../../../../store/reducer/coinReducer";
 import { Link } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
