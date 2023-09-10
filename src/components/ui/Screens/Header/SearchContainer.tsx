@@ -26,9 +26,15 @@ const SearchContainer: FC = () => {
         onChange={(e) => setText(e.target.value)}
       />
       <Link to="/searchcoin">
-        <button type="submit" onClick={handleOnClick}>
-          <SearchIcon />
-        </button>
+        {!text ? (
+          <button className="font-bold" disabled={!text}>
+            Search
+          </button>
+        ) : (
+          <button type="submit" onClick={handleOnClick}>
+            <SearchIcon />
+          </button>
+        )}
       </Link>
     </form>
   );
