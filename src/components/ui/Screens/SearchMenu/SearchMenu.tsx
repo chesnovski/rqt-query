@@ -6,6 +6,9 @@ import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { RootState } from "../../../../store/store";
 import { useDispatch, useSelector } from "react-redux";
+import CoinPriceChangeItem from "../Home/CoinInfoContainer/CoinPriceChangeItem";
+import SkeletonLoader from "../SkeletonLoader";
+import CoinItem from "../Home/CoinInfoContainer/CoinItem";
 
 async function fetchCoin(name: string) {
   const { data } = await axios.get(
@@ -26,7 +29,11 @@ const SearchMenu: FC = () => {
   });
 
   if (isLoading) {
-    return <h3> Loading...</h3>;
+    return (
+      <div className="mx-11 mb-6">
+        <SkeletonLoader count={1} className="h-10 mt-6" />
+      </div>
+    );
   }
 
   if (isError) {
@@ -37,38 +44,9 @@ const SearchMenu: FC = () => {
     <div className={styles.parent}>
       <div>
         {data ? (
-          <div className={styles.main} key={data.id}>
-            <div className="flex justify-start content-center">
-              <div className="mx-6">
-                <div className="flex justify-normal items-center">
-                  <img className={styles.coinImg} src={data.icon} alt="" />
-                  <p className="mx-2">{data.name}</p>
-                </div>
-                <p className="mx-1 font-mono text-lg">
-                  {data.price.toFixed(3)}$
-                </p>
-              </div>
-              {data.priceChange1d ? (
-                <div
-                  className={` ${styles.priceChanged} ${
-                    data.priceChange1d > 4
-                      ? " bg-green-600 text-green-800   transition-opacity animate-ping-short hover:animate-none "
-                      : data.priceChange1d < -4
-                      ? "bg-rose-600 animate-ping-short text-red-800  hover:animate-none"
-                      : data.priceChange1d < 0
-                      ? "bg-rose-600 text-red-800"
-                      : "bg-green-600 text-green-800  "
-                  }`}
-                >
-                  {data.priceChange1d > 0 ? (
-                    <ArrowDropUpIcon />
-                  ) : (
-                    <ArrowDropDownIcon />
-                  )}
-                  {data.priceChange1d} %
-                </div>
-              ) : null}
-            </div>
+          <div className="flex justify-start items-center">
+            <CoinItem coin={data} />
+            <CoinPriceChangeItem coin={data} />
           </div>
         ) : (
           <div className=" font-mono font-bold text-xl">

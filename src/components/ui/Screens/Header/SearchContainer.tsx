@@ -2,6 +2,7 @@ import React, { FC, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addSearch } from "../../../../store/reducer/coinReducer";
 import { Link } from "react-router-dom";
+import SearchIcon from "@mui/icons-material/Search";
 
 const SearchContainer: FC = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const SearchContainer: FC = () => {
   };
 
   return (
-    <form className="mx-2">
+    <form className="mx-2 flex justify-normal">
       <input
         className="mx-2 border rounded px-2 outline-none"
         type="text"
@@ -25,17 +26,9 @@ const SearchContainer: FC = () => {
         onChange={(e) => setText(e.target.value)}
       />
       <Link to="/searchcoin">
-        <input
-          className={
-            text
-              ? "border-indigo-500/75 border-r-2  font-bold px-1 "
-              : "font-bold"
-          }
-          type="submit"
-          disabled={!text}
-          onClick={handleOnClick}
-          value="Search"
-        ></input>
+        <button type="submit" onClick={handleOnClick}>
+          <SearchIcon />
+        </button>
       </Link>
     </form>
   );
